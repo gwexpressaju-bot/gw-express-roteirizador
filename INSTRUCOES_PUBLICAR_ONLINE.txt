@@ -1,0 +1,76 @@
+GW EXPRESS - PUBLICAR PLATAFORMA ONLINE GRÁTIS
+
+OPÇÃO 1 - RENDER FREE
+
+1. Crie uma conta em:
+   https://render.com
+
+2. Crie um repositório no GitHub:
+   https://github.com
+
+3. Envie todos os arquivos desta pasta para o GitHub.
+
+4. No Render:
+   - Clique em New
+   - Web Service
+   - Conecte seu GitHub
+   - Escolha o repositório da GW Express
+
+5. Configuração:
+   Name: gw-express-roteirizador
+   Environment: Python
+   Build Command:
+   pip install -r requirements.txt
+
+   Start Command:
+   uvicorn app.main:app --host 0.0.0.0 --port $PORT
+
+6. Clique em Deploy.
+
+7. O Render vai gerar um link parecido com:
+   https://gw-express-roteirizador.onrender.com
+
+
+OPÇÃO 2 - RAILWAY
+
+1. Crie conta em:
+   https://railway.app
+
+2. Clique em New Project
+
+3. Deploy from GitHub Repo
+
+4. Escolha o repositório da GW Express
+
+5. O Railway identifica o Procfile automaticamente.
+
+6. Aguarde gerar o link público.
+
+
+OPÇÃO 3 - RODAR LOCALMENTE
+
+1. Abra o terminal nesta pasta.
+
+2. Instale:
+   pip install -r requirements.txt
+
+3. Rode:
+   uvicorn app.main:app --reload
+
+4. Acesse:
+   http://127.0.0.1:8000
+
+
+IMPORTANTE
+
+Esta versão usa SQLite local.
+Em hospedagem gratuita, o banco pode reiniciar dependendo da plataforma.
+Para uso profissional diário, recomendo migrar para PostgreSQL gratuito depois.
+
+CONFIGURAÇÃO PADRÃO GW EXPRESS
+
+Capacidade máxima: 95
+Capacidade mínima: 70
+KM máximo: 35
+Cluster bairro: 3 km
+Origem: Rua Desembargador Enock Santiago, 91 - Aracaju/SE

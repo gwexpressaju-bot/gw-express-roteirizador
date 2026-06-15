@@ -1,0 +1,25 @@
+CORREÇÃO PARA ERRO DE COMPILAÇÃO JAVA
+
+O projeto GW Express é Python/FastAPI, não Java.
+
+Se aparecer erro de Java no Render/Railway:
+1. Apague qualquer configuração antiga do serviço.
+2. Crie um novo Web Service.
+3. Escolha ambiente Python.
+4. Use:
+
+Build Command:
+pip install -r requirements.txt
+
+Start Command:
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
+
+No Railway:
+- O arquivo nixpacks.toml força Python 3.11.
+- O arquivo railway.json força o startCommand correto.
+
+Não use:
+mvn
+gradle
+npm
+java
