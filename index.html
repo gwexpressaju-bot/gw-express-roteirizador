@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>GW Express | Roteirizador Online</title>
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+<header>
+<h1>🚚 GW Express | Roteirizador Online</h1>
+<p>Upload Excel, roteirização por proximidade, SPR válido, KM, capacidade e Google Maps.</p>
+</header>
+
+<div class="layout">
+<section class="card">
+<h2>Configuração</h2>
+<form id="form">
+<label>Planilha<input type="file" id="file" name="file" required></label>
+<label>Coluna Latitude<input name="lat_col" value="Consignee Latitude"></label>
+<label>Coluna Longitude<input name="lon_col" value="Consignee Longitude"></label>
+<label>Coluna SPR<input name="spr_col" value="SPR"></label>
+<label>Coluna Bairro<input name="bairro_col" value="Bairro"></label>
+<label>Capacidade Máxima<input name="cap_max" type="number" value="95"></label>
+<label>Capacidade Mínima<input name="cap_min" type="number" value="70"></label>
+<label>KM Máximo<input name="km_max" type="number" value="35" step="0.5"></label>
+<button type="submit">Gerar Roteirização</button>
+</form>
+<div id="status"></div>
+</section>
+
+<section class="card main">
+<div class="metrics">
+<div><b id="pedidos">0</b><span>Pedidos</span></div>
+<div><b id="rotas">0</b><span>Rotas</span></div>
+<div><b id="km">0</b><span>KM Total</span></div>
+<div><b id="invalidos">0</b><span>Não Viáveis</span></div>
+</div>
+<div id="map"></div>
+</section>
+</div>
+
+<nav>
+<button onclick="tab('resumo')">Resumo</button>
+<button onclick="tab('rotasTab')">Rotas</button>
+<button onclick="tab('invalidosTab')">Não Viáveis</button>
+<button onclick="printRomaneio()">Imprimir Romaneio</button>
+<button onclick="exportCsv()">Exportar CSV</button>
+</nav>
+
+<section id="resumo" class="card tab"><h2>Resumo</h2><table id="summaryTable"></table></section>
+<section id="rotasTab" class="card tab hidden"><h2>Rotas</h2><table id="routesTable"></table></section>
+<section id="invalidosTab" class="card tab hidden"><h2>Não Viáveis</h2><table id="invalidTable"></table></section>
+<div id="romaneio"></div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

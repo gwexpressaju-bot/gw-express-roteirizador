@@ -3,7 +3,5 @@ services:
     name: gw-express-roteirizador
     env: python
     plan: free
-    runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
-    autoDeploy: true
